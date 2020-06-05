@@ -10,7 +10,6 @@ let topOrBottomMoving = 30;
 window.addEventListener('keydown', e => {
 	hero.style.left = leftOrRightMoving + 'px';
 	hero.style.bottom = topOrBottomMoving + 'px';
-	console.log(e.keyCode);
 	gameOver(enemyInterval);
 
 	if (e.keyCode === 37) {
