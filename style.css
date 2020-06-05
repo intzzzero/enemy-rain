@@ -1,0 +1,71 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+#bg img {
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.6);
+}
+.warning {
+  position: absolute;
+  top: 200px;
+  font-size: 3em;
+  color: red;
+  font-weight: 800;
+  display: none;
+  transition: 0.5s ease-in-out;
+}
+
+/* hero */
+.hero {
+  background-position: 0;
+  width: 35px;
+  height: 55px;
+  position: absolute;
+  bottom: 30px;
+  left: 400px;
+  background-image: url(images/hero.png);
+}
+.hero-front {
+  background-position: 0;
+}
+.hero-back {
+  background-position: -35px;
+}
+.hero-left {
+  background-position: -70px;
+}
+.hero-right {
+  background-position: -105px;
+}
+
+/* enemy */
+.enemy {
+  width: 42px;
+  height: 48px;
+  background-image: url(images/enemy.png);
+}
+.enemy-space {
+  z-index: 10;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 10, 50, 0.5);
+  box-shadow: 3px 10px 15px rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: 300px;
+  left: 200px;
+  transition: 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+

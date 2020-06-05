@@ -3,15 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Enemy Rain</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="bg">
+    <div class="container">
+      <p class="warning">WARNING!!!</p>
+      <div id="bg">
+        <img src="/images/bg.png">
+      </div>
+      <div class="enemy-space">
+        <div class="enemy"></div>
+      </div>
+      <div class="hero"></div>
     </div>
 
-    <script src="hero.js"></script>
-    <script src="enemy.js"></script>
-    <script src="init.js"></script>
+    <script src="main.js"></script>
+    <!-- <script src="/hero.js"></script>
+    <script src="/enemy.js"></script>
+    <script src="/init.js"></script> -->
   </body>
 </html>
