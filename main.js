@@ -11,8 +11,7 @@ window.addEventListener('keydown', e => {
 	hero.style.left = leftOrRightMoving + 'px';
 	hero.style.bottom = topOrBottomMoving + 'px';
 	console.log(e.keyCode);
-
-	gameOver();
+	gameOver(enemyInterval);
 
 	if (e.keyCode === 37) {
 		hero.classList.remove('hero-front');
@@ -53,7 +52,7 @@ const enemyRandomMoving = () => {
 
 const enemyInterval = setInterval(enemyRandomMoving, 1000);
 
-const gameOver = () => {
+const gameOver = enemyInterval => {
 	const warningMessage = document.querySelector('.warning');
 
 	if (
@@ -62,6 +61,8 @@ const gameOver = () => {
 		(topOrBottomMoving - enemyBottom <= 140 && topOrBottomMoving - enemyBottom >= 0)
 	) {
 		clearInterval(enemyInterval);
+		warningMessage.innerHTML = 'YOU DIE!!!';
+		warningMessage.style.display = 'block';
 	} else if (
 		(leftOrRightMoving - enemyLeft <= 170 && leftOrRightMoving - enemyLeft >= 0) ||
 		(topOrBottomMoving - enemyBottom <= 140 && topOrBottomMoving - enemyBottom >= 0)
