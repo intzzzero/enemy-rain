@@ -29,6 +29,7 @@ body {
 }
 #bg img {
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
 }
 .warning {
   position: absolute;

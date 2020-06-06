@@ -51,10 +51,11 @@ const gameOver = () => {
 		warningMessage.style.display = 'block';
 		setTimeout(() => {
 			warningMessage.style.display = 'none';
-		}, 800);
+		}, 1000);
 	} else if (surviveTimer === 0) {
 		clearInterval(enemyInterval);
 		warningMessage.innerHTML = 'YOU SURVIVE!!!';
+		warningMessage.style.color = 'white';
 		warningMessage.style.display = 'block';
 	}
 };
