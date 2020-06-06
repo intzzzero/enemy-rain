@@ -32,6 +32,19 @@ const countDown = () => {
 
 const timerInterval = setInterval(countDown, 1000);
 
+const showRestartBtn = () => {
+	const restartBtn = document.querySelector('.restart-btn');
+	restartBtn.style.display = 'block';
+
+	restartBtn.addEventListener('mousedown', () => {
+		restartBtn.style.boxShadow = 'none';
+	});
+	restartBtn.addEventListener('mouseup', () => {
+		restartBtn.style.boxShadow = '1px 3px 8px rgba(0, 0, 0, 0.8)';
+		location.reload();
+	});
+};
+
 const gameOver = () => {
 	const warningMessage = document.querySelector('.warning');
 
@@ -44,6 +57,7 @@ const gameOver = () => {
 		clearInterval(enemyInterval);
 		warningMessage.innerHTML = 'YOU DIE!!!';
 		warningMessage.style.display = 'block';
+		showRestartBtn();
 	} else if (
 		(leftOrRightMoving - enemyLeft <= 170 && leftOrRightMoving - enemyLeft >= 0) ||
 		(topOrBottomMoving - enemyBottom <= 140 && topOrBottomMoving - enemyBottom >= 0)
@@ -57,6 +71,7 @@ const gameOver = () => {
 		warningMessage.innerHTML = 'YOU SURVIVE!!!';
 		warningMessage.style.color = 'white';
 		warningMessage.style.display = 'block';
+		showRestartBtn();
 	}
 };
 
