@@ -19,8 +19,8 @@ body {
 }
 .timer-wrapper {
   position: absolute;
-  top: 140px;
-  left: 150px;
+  top: -55px;
+  left: 0;
 }
 .timer-wrapper .timer {
   font-size: 2em;
@@ -30,8 +30,8 @@ body {
 .restart-btn {
   position: absolute;
   font-size: 1.2em;
-  top: -50px;
-  left: 40px;
+  top: -60px;
+  left: 50px;
   width: 120px;
   height: 40px;
   border-radius: 5px;
