@@ -5,6 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 * {
   margin: 0;
@@ -24,13 +25,14 @@ body {
 .timer-wrapper .timer {
   font-size: 2em;
   font-weight: 600;
+  color: #fff;
 }
 #bg img {
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.6);
 }
 .warning {
   position: absolute;
-  top: 200px;
+  top: 280px;
   font-size: 3em;
   color: red;
   font-weight: 800;
