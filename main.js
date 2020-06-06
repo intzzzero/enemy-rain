@@ -1,9 +1,58 @@
-window.addEventListener('load', () => {
-	console.log('game start');
-});
+// window.addEventListener('load', () => {
+// 	console.log('game start');
+// });
 
 const hero = document.querySelector('.hero');
 const enemySpace = document.querySelector('.enemy-space');
+
+let enemyLeft = 300;
+let enemyBottom = 200;
+const enemyRandomMoving = () => {
+	enemyLeft = Math.floor(Math.random() * 700);
+	enemyBottom = Math.floor(Math.random() * 500);
+
+	enemySpace.style.left = enemyLeft + 'px';
+	enemySpace.style.bottom = enemyBottom + 'px';
+};
+
+const enemyInterval = setInterval(enemyRandomMoving, 1000);
+
+let surviveTimer = 60;
+const countDown = () => {
+	const timer = document.querySelector('.timer');
+	surviveTimer--;
+	timer.innerHTML = surviveTimer;
+};
+
+const timerInterval = setInterval(countDown, 1000);
+
+const gameOver = () => {
+	const warningMessage = document.querySelector('.warning');
+
+	if (
+		leftOrRightMoving - enemyLeft <= 170 &&
+		leftOrRightMoving - enemyLeft >= 0 &&
+		(topOrBottomMoving - enemyBottom <= 140 && topOrBottomMoving - enemyBottom >= 0)
+	) {
+		clearInterval(timerInterval);
+		clearInterval(enemyInterval);
+		warningMessage.innerHTML = 'YOU DIE!!!';
+		warningMessage.style.display = 'block';
+	} else if (
+		(leftOrRightMoving - enemyLeft <= 170 && leftOrRightMoving - enemyLeft >= 0) ||
+		(topOrBottomMoving - enemyBottom <= 140 && topOrBottomMoving - enemyBottom >= 0)
+	) {
+		warningMessage.style.display = 'block';
+		setTimeout(() => {
+			warningMessage.style.display = 'none';
+		}, 800);
+	} else if (surviveTimer === 0) {
+		clearInterval(timerInterval);
+		clearInterval(enemyInterval);
+		warningMessage.innerHTML = 'YOU SURVIVE!!!';
+		warningMessage.style.display = 'block';
+	}
+};
 
 let leftOrRightMoving = 400;
 let topOrBottomMoving = 30;
@@ -38,37 +87,3 @@ window.addEventListener('keydown', e => {
 		topOrBottomMoving = topOrBottomMoving < 550 ? topOrBottomMoving + 10 : 550;
 	}
 });
-
-let enemyLeft = 300;
-let enemyBottom = 200;
-const enemyRandomMoving = () => {
-	enemyLeft = Math.floor(Math.random() * 700);
-	enemyBottom = Math.floor(Math.random() * 500);
-
-	enemySpace.style.left = enemyLeft + 'px';
-	enemySpace.style.bottom = enemyBottom + 'px';
-};
-
-const enemyInterval = setInterval(enemyRandomMoving, 1000);
-
-const gameOver = enemyInterval => {
-	const warningMessage = document.querySelector('.warning');
-
-	if (
-		leftOrRightMoving - enemyLeft <= 170 &&
-		leftOrRightMoving - enemyLeft >= 0 &&
-		(topOrBottomMoving - enemyBottom <= 140 && topOrBottomMoving - enemyBottom >= 0)
-	) {
-		clearInterval(enemyInterval);
-		warningMessage.innerHTML = 'YOU DIE!!!';
-		warningMessage.style.display = 'block';
-	} else if (
-		(leftOrRightMoving - enemyLeft <= 170 && leftOrRightMoving - enemyLeft >= 0) ||
-		(topOrBottomMoving - enemyBottom <= 140 && topOrBottomMoving - enemyBottom >= 0)
-	) {
-		warningMessage.style.display = 'block';
-		setTimeout(() => {
-			warningMessage.style.display = 'none';
-		}, 800);
-	}
-};
