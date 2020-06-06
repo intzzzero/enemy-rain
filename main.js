@@ -22,6 +22,12 @@ const countDown = () => {
 	const timer = document.querySelector('.timer');
 	surviveTimer--;
 	timer.innerHTML = surviveTimer;
+	if (surviveTimer < 10) {
+		timer.style.color = 'red';
+	}
+	if (surviveTimer === 0) {
+		clearInterval(timerInterval);
+	}
 };
 
 const timerInterval = setInterval(countDown, 1000);
@@ -47,7 +53,6 @@ const gameOver = () => {
 			warningMessage.style.display = 'none';
 		}, 800);
 	} else if (surviveTimer === 0) {
-		clearInterval(timerInterval);
 		clearInterval(enemyInterval);
 		warningMessage.innerHTML = 'YOU SURVIVE!!!';
 		warningMessage.style.display = 'block';
@@ -59,7 +64,7 @@ let topOrBottomMoving = 30;
 window.addEventListener('keydown', e => {
 	hero.style.left = leftOrRightMoving + 'px';
 	hero.style.bottom = topOrBottomMoving + 'px';
-	gameOver(enemyInterval);
+	gameOver();
 
 	if (e.keyCode === 37) {
 		hero.classList.remove('hero-front');
