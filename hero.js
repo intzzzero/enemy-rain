@@ -1,4 +1,3 @@
-import { gameOver } from '/init.js';
 class Hero {
 	constructor(player) {
 		this._player = player;
@@ -39,19 +38,3 @@ Hero.prototype.moveBottom = function() {
 };
 
 export const hero = new Hero(document.querySelector('.hero'));
-
-window.addEventListener('keydown', function(e) {
-	hero.player.style.left = hero.leftOrRight + 'px';
-	hero.player.style.bottom = hero.topOrBottom + 'px';
-	gameOver();
-
-	if (e.keyCode === 37) {
-		hero.moveLeft();
-	} else if (e.keyCode === 39) {
-		hero.moveRignt();
-	} else if (e.keyCode === 40) {
-		hero.moveTop();
-	} else if (e.keyCode === 38) {
-		hero.moveBottom();
-	}
-});
