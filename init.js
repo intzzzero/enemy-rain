@@ -48,7 +48,7 @@ export const gameOver = function() {
 		warningMessage.style.display = 'block';
 		setTimeout(function() {
 			warningMessage.style.display = 'none';
-		}, 1000);
+		}, 800);
 	} else if (surviveTimer === 0) {
 		clearInterval(enemyInterval);
 		warningMessage.innerHTML = 'YOU SURVIVE!!!';
