@@ -1,5 +1,5 @@
-import { hero } from '/hero.js';
-import { enemyLeft, enemyBottom, enemyInterval } from '/enemy.js';
+import { hero } from './hero.js';
+import { enemyLeft, enemyBottom, enemyInterval } from './enemy.js';
 
 let surviveTimer = 60;
 const countDown = function() {
