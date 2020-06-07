@@ -49,7 +49,7 @@ const gameStart = function() {
 
 	const gameOver = () => {
 		const warningMessage = document.querySelector('.warning');
-
+		const dyingSound = new Audio('audio/dying.wav');
 		if (
 			leftOrRightMoving - enemyLeft <= 170 &&
 			leftOrRightMoving - enemyLeft >= 0 &&
@@ -59,6 +59,7 @@ const gameStart = function() {
 			clearInterval(enemyInterval);
 			warningMessage.innerHTML = 'YOU DIE!!!';
 			warningMessage.style.display = 'block';
+			dyingSound.play();
 			showRestartBtn();
 		} else if (
 			(leftOrRightMoving - enemyLeft <= 170 && leftOrRightMoving - enemyLeft >= 0) ||
