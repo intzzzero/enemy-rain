@@ -32,21 +32,17 @@ const showRestartBtn = function() {
 export const gameOver = function() {
 	const warningMessage = document.querySelector('.warning');
 	const dyingSound = new Audio('audio/dying.wav');
-	if (
-		hero.leftOrRight - enemyLeft <= 170 &&
-		hero.leftOrRight - enemyLeft >= 0 &&
-		(hero.topOrBottom - enemyBottom <= 140 && hero.topOrBottom - enemyBottom >= 0)
-	) {
+
+	let horizonDiffer = hero.leftOrRight - enemyLeft;
+	let verticalDiffer = (hero.topOrBottom = enemyBottom);
+	if (horizonDiffer <= 170 && horizonDiffer >= 0 && (verticalDiffer <= 140 && verticalDiffer >= 0)) {
 		clearInterval(timerInterval);
 		clearInterval(enemyInterval);
 		warningMessage.innerHTML = 'YOU DIE!!!';
 		warningMessage.style.display = 'block';
 		dyingSound.play();
 		showRestartBtn();
-	} else if (
-		(hero.leftOrRight - enemyLeft <= 170 && hero.leftOrRight - enemyLeft >= 0) ||
-		(hero.topOrBottom - enemyBottom <= 140 && hero.topOrBottom - enemyBottom >= 0)
-	) {
+	} else if ((horizonDiffer <= 170 && horizonDiffer >= 0) || (verticalDiffer <= 140 && verticalDiffer >= 0)) {
 		warningMessage.style.display = 'block';
 		setTimeout(function() {
 			warningMessage.style.display = 'none';
