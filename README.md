@@ -1,10 +1,10 @@
-# enemy-rain
+## enemy-rain
 - JavaScript mini game with >wecode
 
-# 사용 기술
+## 사용 기술
 - HTML5, CSS3, Vanilla JavaScript
 
-# 게임 방법
+## 개요
 ![플레이 화면](images/play.png)
 
 - 시간 제한 60초
