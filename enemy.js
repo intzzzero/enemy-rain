@@ -1,14 +1,13 @@
-// class Enemy {
+const enemySpace = document.querySelector('.enemy-space');
 
-// }
-const enemy = document.querySelector('.enemy');
-
+export let enemyLeft = 300;
+export let enemyBottom = 200;
 const enemyRandomMoving = () => {
-	const randomLeft = Math.floor(Math.random() * 700);
-	const randomBottom = Math.floor(Math.random() * 500);
+	enemyLeft = Math.floor(Math.random() * 700);
+	enemyBottom = Math.floor(Math.random() * 500);
 
-	enemy.style.left = randomLeft + 'px';
-	enemy.style.bottom = randomBottom + 'px';
+	enemySpace.style.left = enemyLeft + 'px';
+	enemySpace.style.bottom = enemyBottom + 'px';
 };
 
-setInterval(enemyRandomMoving, 1000);
+export const enemyInterval = setInterval(enemyRandomMoving, 1000);

@@ -1,13 +1,61 @@
-window.addEventListener('load', () => {
-	console.log('game start');
-});
+import { hero } from '/hero.js';
+import { enemyLeft, enemyBottom, enemyInterval } from '/enemy.js';
 
-// const gameOver = () => {
-// 	let heroLeft = hero.style.left.substring(0, hero.style.left.length-2);
-// 	let heroBottom = hero.style.bottom;
-// 	let enemyLeft = enemy.style.left;
-// 	let enemyBottom = enemy.style.bottom;
+let surviveTimer = 60;
+const countDown = () => {
+	const timer = document.querySelector('.timer');
+	surviveTimer--;
+	timer.innerHTML = surviveTimer;
+	if (surviveTimer < 10) {
+		timer.style.color = 'red';
+	}
+	if (surviveTimer === 0) {
+		clearInterval(timerInterval);
+	}
+};
 
-// 	if (heroLeft - enemyLeft <= 10)
-// }
-// console.log(hero.style.left.substring(0, hero.style.left.length - 2));
+const timerInterval = setInterval(countDown, 1000);
+
+const showRestartBtn = () => {
+	const restartBtn = document.querySelector('.restart-btn');
+	restartBtn.style.display = 'block';
+
+	restartBtn.addEventListener('mousedown', () => {
+		restartBtn.style.boxShadow = 'none';
+	});
+	restartBtn.addEventListener('mouseup', () => {
+		restartBtn.style.boxShadow = '1px 3px 8px rgba(0, 0, 0, 0.8)';
+		location.reload();
+	});
+};
+
+export const gameOver = function() {
+	const warningMessage = document.querySelector('.warning');
+	const dyingSound = new Audio('audio/dying.wav');
+	if (
+		hero.leftOrRight - enemyLeft <= 170 &&
+		hero.leftOrRight - enemyLeft >= 0 &&
+		(hero.topOrBottom - enemyBottom <= 140 && hero.topOrBottom - enemyBottom >= 0)
+	) {
+		clearInterval(timerInterval);
+		clearInterval(enemyInterval);
+		warningMessage.innerHTML = 'YOU DIE!!!';
+		warningMessage.style.display = 'block';
+		dyingSound.play();
+		showRestartBtn();
+	} else if (
+		(hero.leftOrRight - enemyLeft <= 170 && hero.leftOrRight - enemyLeft >= 0) ||
+		(hero.topOrBottom - enemyBottom <= 140 && hero.topOrBottom - enemyBottom >= 0)
+	) {
+		warningMessage.style.display = 'block';
+		setTimeout(() => {
+			warningMessage.style.display = 'none';
+		}, 1000);
+	} else if (surviveTimer === 0) {
+		clearInterval(enemyInterval);
+		warningMessage.innerHTML = 'YOU SURVIVE!!!';
+		warningMessage.style.color = 'white';
+		warningMessage.style.display = 'block';
+		showRestartBtn();
+	}
+};
