@@ -2,7 +2,7 @@ import { hero } from '/hero.js';
 import { enemyLeft, enemyBottom, enemyInterval } from '/enemy.js';
 
 let surviveTimer = 60;
-const countDown = () => {
+const countDown = function() {
 	const timer = document.querySelector('.timer');
 	surviveTimer--;
 	timer.innerHTML = surviveTimer;
@@ -16,14 +16,14 @@ const countDown = () => {
 
 const timerInterval = setInterval(countDown, 1000);
 
-const showRestartBtn = () => {
+const showRestartBtn = function() {
 	const restartBtn = document.querySelector('.restart-btn');
 	restartBtn.style.display = 'block';
 
-	restartBtn.addEventListener('mousedown', () => {
+	restartBtn.addEventListener('mousedown', function() {
 		restartBtn.style.boxShadow = 'none';
 	});
-	restartBtn.addEventListener('mouseup', () => {
+	restartBtn.addEventListener('mouseup', function() {
 		restartBtn.style.boxShadow = '1px 3px 8px rgba(0, 0, 0, 0.8)';
 		location.reload();
 	});
@@ -48,7 +48,7 @@ export const gameOver = function() {
 		(hero.topOrBottom - enemyBottom <= 140 && hero.topOrBottom - enemyBottom >= 0)
 	) {
 		warningMessage.style.display = 'block';
-		setTimeout(() => {
+		setTimeout(function() {
 			warningMessage.style.display = 'none';
 		}, 1000);
 	} else if (surviveTimer === 0) {
