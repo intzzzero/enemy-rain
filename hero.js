@@ -15,7 +15,7 @@ Hero.prototype.moveLeft = function() {
 	this.player.classList.add('hero-left');
 	return (this.leftOrRight = this.leftOrRight > 50 ? this.leftOrRight - 10 : 50);
 };
-Hero.prototype.moveRignt = function() {
+Hero.prototype.moveRight = function() {
 	this.player.classList.remove('hero-front');
 	this.player.classList.remove('hero-left');
 	this.player.classList.remove('hero-back');

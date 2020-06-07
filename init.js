@@ -66,7 +66,7 @@ window.addEventListener('keydown', function(e) {
 	if (e.keyCode === 37) {
 		hero.moveLeft();
 	} else if (e.keyCode === 39) {
-		hero.moveRignt();
+		hero.moveRight();
 	} else if (e.keyCode === 40) {
 		hero.moveTop();
 	} else if (e.keyCode === 38) {
