@@ -43,6 +43,7 @@ body {
   display: none;
   outline: none;
   transition: 0.3s ease-in-out;
+  z-index: 30;
 }
 #bg img {
   box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.6);
