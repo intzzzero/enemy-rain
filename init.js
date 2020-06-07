@@ -25,7 +25,9 @@ const showRestartBtn = function() {
 	});
 	restartBtn.addEventListener('mouseup', function() {
 		restartBtn.style.boxShadow = '1px 3px 8px rgba(0, 0, 0, 0.8)';
-		location.reload();
+		setTimeout(function() {
+			location.reload();
+		}, 800);
 	});
 };
 
@@ -34,7 +36,7 @@ export const gameOver = function() {
 	const dyingSound = new Audio('audio/dying.wav');
 
 	let horizonDiffer = hero.leftOrRight - enemyLeft;
-	let verticalDiffer = (hero.topOrBottom = enemyBottom);
+	let verticalDiffer = hero.topOrBottom - enemyBottom;
 	if (horizonDiffer <= 170 && horizonDiffer >= 0 && (verticalDiffer <= 140 && verticalDiffer >= 0)) {
 		clearInterval(timerInterval);
 		clearInterval(enemyInterval);

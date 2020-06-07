@@ -5,7 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: ivory;
+  background-color: #fff;
 }
 * {
   margin: 0;
@@ -37,7 +37,7 @@ body {
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.8);
-  background-color: ivory;
+  background-color: #fff;
   color: rgba(0, 0, 0, 0.8);
   font-weight: 600;
   display: none;
