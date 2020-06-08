@@ -1,5 +1,5 @@
 import { hero } from './hero.js';
-import { enemyLeft, enemyBottom, enemyInterval } from './enemy.js';
+import { enemy } from './enemy.js';
 
 let surviveTimer = 60;
 const countDown = function() {
@@ -15,6 +15,12 @@ const countDown = function() {
 };
 
 const timerInterval = setInterval(countDown, 1000);
+
+const enemyInterval = setInterval(function() {
+	enemy.randomMoving();
+	enemy.ghost.style.left = enemy.enemyLeft + 'px';
+	enemy.ghost.style.bottom = enemy.enemyBottom + 'px';
+}, 1000);
 
 const showRestartBtn = function() {
 	const restartBtn = document.querySelector('.restart-btn');
@@ -35,8 +41,8 @@ export const gameOver = function() {
 	const warningMessage = document.querySelector('.warning');
 	const dyingSound = new Audio('audio/dying.wav');
 
-	let horizonDiffer = hero.leftOrRight - enemyLeft;
-	let verticalDiffer = hero.topOrBottom - enemyBottom;
+	let horizonDiffer = hero.leftOrRight - enemy.enemyLeft;
+	let verticalDiffer = hero.topOrBottom - enemy.enemyBottom;
 	if (horizonDiffer <= 170 && horizonDiffer >= 0 && (verticalDiffer <= 140 && verticalDiffer >= 0)) {
 		clearInterval(timerInterval);
 		clearInterval(enemyInterval);

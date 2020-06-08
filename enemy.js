@@ -1,13 +1,17 @@
-const enemySpace = document.querySelector('.enemy-space');
+class Enemy {
+	constructor(ghost) {
+		this._ghost = ghost;
+		this.enemyLeft = 300;
+		this.enemyBottom = 200;
+	}
+	get ghost() {
+		return this._ghost;
+	}
+}
 
-export let [enemyLeft, enemyBottom] = [300, 200];
-
-const enemyRandomMoving = function() {
-	enemyLeft = Math.floor(Math.random() * 700);
-	enemyBottom = Math.floor(Math.random() * 500);
-
-	enemySpace.style.left = enemyLeft + 'px';
-	enemySpace.style.bottom = enemyBottom + 'px';
+Enemy.prototype.randomMoving = function() {
+	this.enemyLeft = Math.floor(Math.random() * 700);
+	this.enemyBottom = Math.floor(Math.random() * 500);
 };
 
-export const enemyInterval = setInterval(enemyRandomMoving, 1000);
+export const enemy = new Enemy(document.querySelector('.enemy-space'));
