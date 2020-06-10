@@ -17,6 +17,9 @@
 - 플레이어 60초 동안 생존할 경우 YOU SURVIVE!!! 출력 후 카운트다운, 유령 움직임 멈춤
 ![생존](images/play03.png)
 
-- 카운트다운과 유령의 동 멈출 경우 RESTART 버튼 출력
+- 카운트다운과 유령의 움직임 멈출 경우 RESTART 버튼 출력
+- RESTART 버튼 누르면 800ms 뒤 재시작
+
+***
 
 ### [플레이 링크](https://codeameba.github.io/enemy-rain/)
